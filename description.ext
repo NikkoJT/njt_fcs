@@ -1,0 +1,14 @@
+class CfgFunctions
+{
+	class njt
+	{
+		class fcs
+		{
+			file = "njt_fcs";
+			class fcs_init{};
+			class fcs_commanderOverride{};
+			class fcs_failure{};
+			class fcs_persistentEffects{};
+		};
+	};
+};
