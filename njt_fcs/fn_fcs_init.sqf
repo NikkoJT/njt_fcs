@@ -72,3 +72,18 @@ _vehicle addAction ["FCS failure - repair required", // Title
 	"gunElevAuto", // Shortcut
 	"(_this == gunner _target) && {_target getVariable [""FCS_failure"",false]}" // Condition
 ];
+
+// Not FCS but I'm putting it in here
+_vehicle addAction [
+    "Disable automatic brakes (brake to re-engage)",
+    {
+        params ["_target", "_caller", "_actionId", "_arguments"];
+        [_target,true] remoteExec ["disableBrakes",_target];
+    },
+    "",
+    10,
+    false,
+    true,
+    "",
+    "(driver _target == _this) && {!brakesDisabled _target}"
+];
