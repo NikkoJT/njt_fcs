@@ -19,7 +19,11 @@ while {(_target getVariable ["fcs_failure",false]) && (alive _target)} do {
 					_targetMuzzle = _x;
 				};
 				_zeroCheck = _currentGunner setWeaponZeroing [_targetWeapon,_targetMuzzle,1];
-				if !(_zeroCheck) then { diag_log format ["FCS: Weapon zeroing failure for %1",_targetWeapon]} else { diag_log format ["Zeroing set for %1",_targetWeapon]};
+				if !(_zeroCheck) then { 
+					diag_log format ["FCS: Weapon zeroing failure for %1",_targetWeapon]
+				} else { 
+					// diag_log format ["Zeroing set for %1",_targetWeapon]
+				};
 			} forEach _targetWeaponMuzzles;
 		} forEach (_target weaponsTurret [0]);
 		
