@@ -9,6 +9,7 @@ class CfgFunctions
 			class fcs_commanderOverride{};
 			class fcs_failure{};
 			class fcs_persistentEffects{};
+			class fcs_overrideLocalWarning{};
 		};
 	};
 };
