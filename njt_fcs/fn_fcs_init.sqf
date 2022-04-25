@@ -1,3 +1,5 @@
+if (isDedicated) exitWith {};
+
 params ["_vehicle"];
 
 if !(_vehicle isKindOf "LandVehicle") exitWith { diag_log "FCS: tried to run on something that isn't a vehicle" };
