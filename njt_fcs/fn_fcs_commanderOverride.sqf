@@ -1,11 +1,12 @@
-params ["_target","_caller"];
+params ["_vehicle","_caller"];
 
 if (isNull cursorObject) then {
-	["NO TARGET",1] remoteExec ["njt_fnc_fcs_overrideLocalWarning",commander _target];
+	["NO TARGET",1] remoteExec ["njt_fnc_fcs_overrideLocalWarning",commander _vehicle];
 } else {
-	[_target,[cursorObject,_target unitTurret (gunner _target),true]] remoteExec ["lockCameraTo",gunner _target];
-	["TC OVERRIDE",2] remoteExec ["njt_fnc_fcs_overrideLocalWarning",gunner _target];
-	_target setVariable ["njt_commanderOverride_cooldown",true,true];
+	_overrideTarget = (cursorObject modelToWorldWorld (boundingCenter cursorObject));
+	[_vehicle,[_overrideTarget,_vehicle unitTurret (gunner _vehicle),true]] remoteExec ["lockCameraTo",gunner _vehicle];
+	["TC OVERRIDE",2] remoteExec ["njt_fnc_fcs_overrideLocalWarning",gunner _vehicle];
+	_vehicle setVariable ["njt_commanderOverride_cooldown",true,true];
 	sleep 3;
-	_target setVariable ["njt_commanderOverride_cooldown",false,true];
+	_vehicle setVariable ["njt_commanderOverride_cooldown",false,true];
 };
